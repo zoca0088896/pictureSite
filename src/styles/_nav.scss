@@ -1,0 +1,22 @@
+nav {
+  background-color: rgb(6, 67, 117);
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    li {
+      transition: all 0.2s ease;
+      margin: 0.25rem 1rem;
+      a {
+        display: block;
+        color: rgb(184, 162, 162);
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        &:hover {
+          color: rgb(100, 86, 86);
+        }
+      }
+    }
+  }
+}

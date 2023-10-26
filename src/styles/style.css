@@ -1,0 +1,111 @@
+nav {
+  background-color: rgb(6, 67, 117);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+nav ul li {
+  transition: all 0.2s ease;
+  margin: 0.25rem 1rem;
+}
+nav ul li a {
+  display: block;
+  color: rgb(184, 162, 162);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+nav ul li a:hover {
+  color: rgb(100, 86, 86);
+}
+
+div.footer {
+  background-color: rgb(6, 67, 117);
+  padding: 0.25rem;
+}
+div.footer h3 {
+  text-align: end;
+  margin-right: 1rem;
+}
+
+div.search {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+div.search input.input {
+  font-size: 2rem;
+  border: 3px solid rgb(123, 186, 238);
+}
+div.search button {
+  font-size: 2rem;
+  background-color: rgb(123, 186, 238);
+  border: 3px solid rgb(123, 186, 238);
+}
+div.search button:hover {
+  cursor: pointer;
+}
+
+div.photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+div.photos div.picture {
+  width: 400px;
+  padding: 1rem;
+}
+div.photos div.picture div.imageContainer {
+  overflow: hidden;
+  height: 40vh;
+}
+div.photos div.picture div.imageContainer img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease;
+}
+div.photos div.picture div.imageContainer img:hover {
+  transform: scale(1.25);
+  cursor: zoom-in;
+}
+div.photos div.picture a {
+  color: rgb(179, 160, 160);
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: rgb(179, 160, 160);
+}
+body div.morePicture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body div.morePicture button {
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  background-color: rgb(6, 67, 117);
+  border: none;
+  border-radius: 25%;
+  color: rgb(179, 160, 160);
+  transition: all 0.3s ease-in;
+}
+body div.morePicture button:hover {
+  cursor: pointer;
+}
+body div.morePicture button:active {
+  transform: scale(0.9);
+}/*# sourceMappingURL=style.css.map */
