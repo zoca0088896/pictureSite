@@ -1,17 +1,26 @@
 div.search {
   display: flex;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 5%;
   input.input {
     font-size: 2rem;
-    border: 3px solid rgb(123, 186, 238);
+    border: 3px solid rgb(0, 0, 0);
+    width: 20%;
   }
   button {
     font-size: 2rem;
-    background-color: rgb(123, 186, 238);
-    border: 3px solid rgb(123, 186, 238);
+    color: rgb(175, 177, 85);
+    background-color: rgb(0, 0, 0);
+    border: 3px solid rgb(0, 0, 0);
     &:hover {
       cursor: pointer;
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  div.search {
+    input.input {
+      width: 35%;
     }
   }
 }

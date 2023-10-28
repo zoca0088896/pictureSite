@@ -2,14 +2,15 @@
 @import "./footer";
 @import "./search";
 @import "./picture";
+@import "./spark";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  background-color: black;
-  color: rgb(179, 160, 160);
+  background-image: linear-gradient(to right, rgb(70, 70, 67), rgb(41, 43, 32));
+  color: rgb(175, 177, 85);
   div.morePicture {
     display: flex;
     justify-content: center;
@@ -18,16 +19,17 @@ body {
       margin: 1rem;
       padding: 0.5rem;
       font-size: 1.5rem;
-      background-color: rgb(6, 67, 117);
+      background-color: rgb(0, 0, 0);
       border: none;
       border-radius: 25%;
-      color: rgb(179, 160, 160);
-      transition: all 0.3s ease-in;
+      color: rgb(175, 177, 85);
+      transition: all 0.1s ease-in;
       &:hover {
+        transform: scale(1.1);
         cursor: pointer;
       }
       &:active {
-        transform: scale(0.9);
+        transform: scale(0.8);
       }
     }
   }

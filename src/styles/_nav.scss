@@ -1,20 +1,22 @@
 nav {
-  background-color: rgb(6, 67, 117);
+  overflow: hidden;
+  background-image: linear-gradient(to left, black, rgb(121, 121, 76));
   ul {
     list-style: none;
     display: flex;
     justify-content: flex-end;
+    margin-right: 2rem;
     li {
       transition: all 0.2s ease;
       margin: 0.25rem 1rem;
       a {
         display: block;
-        color: rgb(184, 162, 162);
+        color: rgb(175, 177, 85);
         text-decoration: none;
         font-size: 1.1rem;
         font-weight: 600;
         &:hover {
-          color: rgb(100, 86, 86);
+          color: rgb(75, 80, 4);
         }
       }
     }

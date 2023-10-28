@@ -1,10 +1,12 @@
 nav {
-  background-color: rgb(6, 67, 117);
+  overflow: hidden;
+  background-image: linear-gradient(to left, black, rgb(121, 121, 76));
 }
 nav ul {
   list-style: none;
   display: flex;
   justify-content: flex-end;
+  margin-right: 2rem;
 }
 nav ul li {
   transition: all 0.2s ease;
@@ -12,17 +14,17 @@ nav ul li {
 }
 nav ul li a {
   display: block;
-  color: rgb(184, 162, 162);
+  color: rgb(175, 177, 85);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
 }
 nav ul li a:hover {
-  color: rgb(100, 86, 86);
+  color: rgb(75, 80, 4);
 }
 
 div.footer {
-  background-color: rgb(6, 67, 117);
+  background-image: linear-gradient(to left, black, rgb(121, 121, 76));
   padding: 0.25rem;
 }
 div.footer h3 {
@@ -33,21 +35,28 @@ div.footer h3 {
 div.search {
   display: flex;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 div.search input.input {
   font-size: 2rem;
-  border: 3px solid rgb(123, 186, 238);
+  border: 3px solid rgb(0, 0, 0);
+  width: 20%;
 }
 div.search button {
   font-size: 2rem;
-  background-color: rgb(123, 186, 238);
-  border: 3px solid rgb(123, 186, 238);
+  color: rgb(175, 177, 85);
+  background-color: rgb(0, 0, 0);
+  border: 3px solid rgb(0, 0, 0);
 }
 div.search button:hover {
   cursor: pointer;
 }
 
+@media screen and (max-width: 1024px) {
+  div.search input.input {
+    width: 35%;
+  }
+}
 div.photos {
   display: flex;
   flex-wrap: wrap;
@@ -78,6 +87,74 @@ div.photos div.picture a {
   text-decoration: none;
 }
 
+div.spark-effect {
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  pointer-events: none;
+  z-index: -10;
+}
+div.spark-effect div.spark {
+  position: absolute;
+  width: 2px;
+  height: 300px;
+  background-color: rgb(189, 167, 81);
+}
+div.spark-effect .spark1 {
+  left: 10%;
+  animation: moveSpark 3s linear 0s infinite;
+}
+div.spark-effect .spark2 {
+  left: 17%;
+  animation: moveSpark 4s linear 2s infinite;
+}
+div.spark-effect .spark3 {
+  left: 29%;
+  animation: moveSpark 5s linear 1s infinite;
+}
+div.spark-effect .spark4 {
+  left: 38%;
+  animation: moveSpark 8s linear 0s infinite;
+}
+div.spark-effect .spark5 {
+  left: 46%;
+  animation: moveSpark 14s ease 0s infinite;
+}
+div.spark-effect .spark6 {
+  left: 60%;
+  animation: moveSpark 4s linear 1s infinite;
+}
+div.spark-effect .spark7 {
+  left: 78%;
+  animation: moveSpark 5s linear 1s infinite;
+}
+div.spark-effect .spark8 {
+  left: 86%;
+  animation: moveSpark 7s linear 6s infinite;
+}
+div.spark-effect .spark9 {
+  left: 94%;
+  animation: moveSpark 5s ease-in-out 0s infinite;
+}
+div.spark-effect .spark10 {
+  left: 55%;
+  animation: moveSpark 3s linear 1s infinite;
+}
+div.spark-effect .spark10 {
+  left: 5%;
+  animation: moveSpark 6s linear 0s infinite;
+}
+
+@keyframes moveSpark {
+  0% {
+    margin-top: 100vh;
+    opacity: 1;
+  }
+  100% {
+    margin-top: -200px;
+    opacity: 0;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -85,8 +162,8 @@ div.photos div.picture a {
 }
 
 body {
-  background-color: black;
-  color: rgb(179, 160, 160);
+  background-image: linear-gradient(to right, rgb(70, 70, 67), rgb(41, 43, 32));
+  color: rgb(175, 177, 85);
 }
 body div.morePicture {
   display: flex;
@@ -97,15 +174,16 @@ body div.morePicture button {
   margin: 1rem;
   padding: 0.5rem;
   font-size: 1.5rem;
-  background-color: rgb(6, 67, 117);
+  background-color: rgb(0, 0, 0);
   border: none;
   border-radius: 25%;
-  color: rgb(179, 160, 160);
-  transition: all 0.3s ease-in;
+  color: rgb(175, 177, 85);
+  transition: all 0.1s ease-in;
 }
 body div.morePicture button:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
 body div.morePicture button:active {
-  transform: scale(0.9);
+  transform: scale(0.8);
 }/*# sourceMappingURL=style.css.map */
