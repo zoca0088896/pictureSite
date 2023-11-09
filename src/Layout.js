@@ -9,10 +9,13 @@ const Layout = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">首頁</Link>
+            <Link to="/">Pexels</Link>
           </li>
           <li>
-            <Link to="/about">關於這個網站</Link>
+            <Link to="/gelbooru">Gelbooru(NSFW)</Link>
+          </li>
+          <li>
+            <Link to="/safebooru">Safebooru(SFW)</Link>
           </li>
         </ul>
       </nav>

@@ -4,7 +4,8 @@ import "./styles/style.css";
 import Layout from "./Layout";
 import Homepage from "./pages/Homepage";
 import Page404 from "./pages/Page404";
-import About from "./pages/About";
+import Gelbooru from "./pages/Gelbooru";
+import Safebooru from "./pages/Safebooru";
 function App() {
   return (
     <div className="app">
@@ -12,7 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Homepage />}></Route>
-            <Route path="about" element={<About />}></Route>
+            <Route path="gelbooru" element={<Gelbooru />}></Route>
+            <Route path="safebooru" element={<Safebooru />}></Route>
             <Route path="*" element={<Page404 />}></Route>
           </Route>
         </Routes>

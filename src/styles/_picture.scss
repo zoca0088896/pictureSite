@@ -3,9 +3,11 @@ div.photos {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
   div.picture {
     width: 400px;
     padding: 1rem;
+
     div.imageContainer {
       overflow: hidden;
       height: 40vh;

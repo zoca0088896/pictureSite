@@ -6,7 +6,12 @@ const Search = ({ searchHandler, setInput, input }) => {
   };
   return (
     <div className="search">
-      <input type="text" className="input" onChange={inputHandler} />
+      <input
+        type="text"
+        className="input"
+        onChange={inputHandler}
+        placeholder="搜尋Tag/Range"
+      />
       <button onClick={searchHandler}>search</button>
     </div>
   );
