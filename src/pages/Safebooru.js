@@ -8,16 +8,15 @@ const Safebooru = () => {
   const [input, setInput] = useState("");
   let [currenSearch, setCurrentSearch] = useState("");
   let [page, setPage] = useState(0);
-  const initialURL = `https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=20&pid=${page}&json=1`;
-  const searchURL = `https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=20&tags=${input}&pid=${page}&json=1`;
+  const initialURL = `https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=20&pid=0&json=1`;
+  const searchURL = `https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=20&tags=${input}&pid=0&json=1`;
   const searchHandler = async (url) => {
+    setPage(0);
     let response = await axios.get(url);
-    console.log(response);
     console.log(response.data);
     setimgs(response.data);
     setCurrentSearch(input);
   };
-
   //more imgs
   const moreImgs = async () => {
     let newURL;
@@ -26,10 +25,11 @@ const Safebooru = () => {
         page + 1
       }&json=1`;
     } else {
-      newURL = `https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=20&tags=${input}&pid=${
+      newURL = `https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=20&tags=${currenSearch}&pid=${
         page + 1
       }&json=1`;
     }
+    console.log(newURL);
     setPage(page + 1);
     let response = await axios.get(newURL);
     setimgs([...imgs, ...response.data]);
@@ -47,6 +47,7 @@ const Safebooru = () => {
       return;
     }
   };
+
   return (
     <div>
       <Search

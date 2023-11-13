@@ -1,3 +1,4 @@
+@charset "UTF-8";
 nav {
   overflow: hidden;
   background-image: linear-gradient(to left, black, rgb(121, 121, 76));
@@ -38,7 +39,7 @@ div.footer h3 {
 div.search {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 2rem;
 }
 div.search input.input {
   font-size: 2rem;
@@ -86,8 +87,31 @@ div.photos div.picture div.imageContainer img:hover {
   cursor: zoom-in;
 }
 div.photos div.picture a {
-  color: rgb(179, 160, 160);
+  margin-top: 0.5rem;
+  display: inline-block;
+  padding: 0.25rem;
+  background-color: black;
+  color: rgb(175, 177, 85);
+  border-radius: 20%;
   text-decoration: none;
+}
+div.photos div.picture button {
+  border: none;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  display: inline-block;
+  padding: 0.25rem;
+  background-color: black;
+  color: rgb(175, 177, 85);
+  border-radius: 20%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+div.photos div.picture button:hover {
+  cursor: pointer;
+}
+div.photos div.picture button:active {
+  transform: scale(0.9);
 }
 
 div.spark-effect {
@@ -164,6 +188,157 @@ div.imgs {
   justify-content: center;
   align-items: center;
 }
+div.imgs div.dan-file {
+  width: 400px;
+  padding: 1rem;
+}
+div.imgs div.dan-file div.danbooru-img {
+  height: 40vh;
+  overflow: hidden;
+}
+div.imgs div.dan-file div.danbooru-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease-in;
+}
+div.imgs div.dan-file div.danbooru-img img:hover {
+  transform: scale(1.25);
+  cursor: zoom-in;
+}
+div.imgs div.dan-file div.danbooru-video {
+  height: 40vh;
+  overflow: hidden;
+}
+div.imgs div.dan-file div.danbooru-video video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease-in;
+}
+div.imgs div.dan-file div.danbooru-video video:hover {
+  transform: scale(1.25);
+  cursor: zoom-in;
+}
+div.imgs div.dan-file label {
+  display: inline-block;
+  padding: 0.25rem;
+  border-radius: 20%;
+  transition: all 0.3s ease;
+  background-color: black;
+}
+div.imgs div.dan-file label:hover {
+  cursor: pointer;
+}
+div.imgs div.dan-file label:active {
+  transform: scale(0.9);
+}
+div.imgs div.dan-file div.tags.show {
+  opacity: 1;
+  pointer-events: all;
+}
+div.imgs div.dan-file div.tags {
+  opacity: 0;
+  transition: all 0.2s linear;
+  pointer-events: none;
+  padding: 1rem;
+  position: fixed;
+  z-index: 1;
+  width: 80vw;
+  height: 80vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+div.imgs div.dan-file div.tags button.copy-btn {
+  padding: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgb(175, 177, 85);
+  border: none;
+  width: 10%;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 90%;
+  bottom: 100%;
+  border-radius: 20%;
+  transition: all 0.3s ease;
+}
+div.imgs div.dan-file div.tags button.copy-btn:hover {
+  cursor: pointer;
+}
+div.imgs div.dan-file div.tags button.copy-btn:active {
+  transform: scale(0.9);
+}
+div.imgs div.dan-file div.tags button.download-tags {
+  padding: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgb(175, 177, 85);
+  border: none;
+  width: 10%;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 75%;
+  bottom: 100%;
+  border-radius: 20%;
+  transition: all 0.3s ease;
+}
+div.imgs div.dan-file div.tags button.download-tags:hover {
+  cursor: pointer;
+}
+div.imgs div.dan-file div.tags button.download-tags:active {
+  transform: scale(0.9);
+}
+div.imgs div.dan-file div.tags label.closeTags {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  left: 90%;
+  bottom: 100%;
+  width: 10%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+div.imgs div.dan-file div.tags p {
+  font-size: 1.5rem;
+}
+div.imgs div.dan-file a {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  display: inline-block;
+  padding: 0.25rem;
+  background-color: black;
+  color: rgb(175, 177, 85);
+  border-radius: 20%;
+  text-decoration: none;
+}
+div.imgs div.dan-file a.img-source {
+  margin-left: 0;
+  margin-bottom: 0.25rem;
+}
+div.imgs div.dan-file a.video-source {
+  margin-left: 0;
+  margin-bottom: 0.25rem;
+}
+div.imgs div.dan-file button {
+  border: none;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  display: inline-block;
+  padding: 0.25rem;
+  background-color: black;
+  color: rgb(175, 177, 85);
+  border-radius: 20%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+div.imgs div.dan-file button:hover {
+  cursor: pointer;
+}
+div.imgs div.dan-file button:active {
+  transform: scale(0.9);
+}
 div.imgs div.safe-img {
   width: 400px;
   padding: 1rem;
@@ -216,7 +391,6 @@ div.imgs div.safe-img div.tags button.copy-btn {
   padding: 0.25rem;
   background-color: rgba(0, 0, 0, 0.9);
   color: rgb(175, 177, 85);
-  font-size: 1rem;
   border: none;
   width: 10%;
   font-size: 1.5rem;
@@ -256,20 +430,43 @@ div.imgs div.safe-img a {
   color: rgb(175, 177, 85);
   border-radius: 20%;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+div.imgs div.safe-img a:active {
+  transform: scale(0.9);
+}
+div.imgs div.safe-img button {
+  border: none;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  display: inline-block;
+  padding: 0.25rem;
+  background-color: black;
+  color: rgb(175, 177, 85);
+  border-radius: 20%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+div.imgs div.safe-img button:hover {
+  cursor: pointer;
+}
+div.imgs div.safe-img button:active {
+  transform: scale(0.9);
 }
 div.imgs div.gel-img {
-  flex-basis: 250px;
+  flex-basis: 400px;
   padding: 1rem;
 }
 div.imgs div.gel-img div.gelbooru-img {
-  height: 250px;
+  height: 25vh;
   overflow: hidden;
+  background-color: black;
 }
 div.imgs div.gel-img div.gelbooru-img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: all 0.3s ease-in;
 }
 div.imgs div.gel-img div.gelbooru-img img:hover {
@@ -309,7 +506,6 @@ div.imgs div.gel-img div.tags button.copy-btn {
   padding: 0.25rem;
   background-color: rgba(0, 0, 0, 0.9);
   color: rgb(175, 177, 85);
-  font-size: 1rem;
   border: none;
   width: 10%;
   font-size: 1.5rem;
@@ -350,12 +546,35 @@ div.imgs div.gel-img a {
   border-radius: 20%;
   text-decoration: none;
 }
+div.imgs div.gel-img button {
+  border: none;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  display: inline-block;
+  padding: 0.25rem;
+  background-color: black;
+  color: rgb(175, 177, 85);
+  border-radius: 20%;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+div.imgs div.gel-img button:hover {
+  cursor: pointer;
+}
+div.imgs div.gel-img button:active {
+  transform: scale(0.9);
+}
 
 div.hidden {
   display: none;
 }
 
 div.success {
+  padding: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -363,7 +582,118 @@ div.success {
   transform: translate(-50%, -50%);
   width: 80%;
   height: 20%;
+  border-radius: 10%;
+  animation: fadeIn 0.1s linear 0s 1 normal;
+}
+div.success p {
+  color: rgba(175, 177, 85, 0.9);
+}
+div.success button {
+  padding: 0.25rem;
+  align-self: flex-end;
+  position: absolute;
+  top: 102%;
+  width: 10%;
+  background-color: rgb(0, 0, 0);
+  color: rgba(175, 177, 85, 0.9);
+  border: none;
+  border-radius: 20%;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+div.success button:hover {
+  cursor: pointer;
+}
+div.success button:active {
+  transform: scale(0.9);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+div.rating {
+  position: fixed;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 0.75rem;
+  margin-left: 1rem;
+  border-radius: 50%;
+}
+div.rating p {
   text-align: center;
+  font-size: 1.25rem;
+}
+div.rating label {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+}
+div.rating label:hover {
+  cursor: pointer;
+}
+div.rating label:active {
+  transform: scale(0.8);
+}
+div.rating div.rating-menu.show {
+  opacity: 1;
+  pointer-events: all;
+}
+div.rating div.rating-menu {
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+div.rating div.rating-menu label {
+  position: absolute;
+  left: 100%;
+  bottom: 100%;
+}
+div.rating div.rating-menu div.btns {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+div.rating div.rating-menu div.btns button {
+  border: none;
+  width: 100%;
+  padding: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgb(175, 177, 85);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+div.rating div.rating-menu div.btns button:hover {
+  cursor: pointer;
+  background-color: rgba(88, 88, 88, 0.9);
+}
+div.rating div.rating-menu div.btns button.btn-active {
+  border: 1px solid rgba(175, 177, 85, 0.5);
+  padding: 0.25rem;
+  background-color: rgba(88, 88, 88, 0.9);
+  color: rgb(175, 177, 85);
+  transition: all 0.3s ease;
+}
+div.rating div.rating-menu div.btns button.btn-active::before {
+  content: "✓";
+}
+div.rating div.rating-menu div.btns button.btn-active:hover {
+  cursor: pointer;
 }
 
 * {

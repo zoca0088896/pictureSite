@@ -1,0 +1,78 @@
+div.rating {
+  position: fixed;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 0.75rem;
+  margin-left: 1rem;
+  border-radius: 50%;
+  p {
+    text-align: center;
+    font-size: 1.25rem;
+  }
+  label {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      transform: scale(0.8);
+    }
+  }
+  div.rating-menu.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+  div.rating-menu {
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.9);
+    label {
+      position: absolute;
+      left: 100%;
+      bottom: 100%;
+    }
+    div.btns {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      button {
+        border: none;
+        width: 100%;
+
+        padding: 0.25rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: rgb(175, 177, 85);
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        user-select: none;
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(88, 88, 88, 0.9);
+        }
+      }
+      button.btn-active {
+        border: 1px solid rgb(175, 177, 85, 0.5);
+        padding: 0.25rem;
+        background-color: rgba(88, 88, 88, 0.9);
+        color: rgb(175, 177, 85);
+        transition: all 0.3s ease;
+        &::before {
+          content: "\2713";
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

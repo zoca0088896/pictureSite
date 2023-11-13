@@ -7,7 +7,6 @@ div.photos {
   div.picture {
     width: 400px;
     padding: 1rem;
-
     div.imageContainer {
       overflow: hidden;
       height: 40vh;
@@ -24,8 +23,32 @@ div.photos {
       }
     }
     a {
-      color: rgb(179, 160, 160);
+      margin-top: 0.5rem;
+
+      display: inline-block;
+      padding: 0.25rem;
+      background-color: black;
+      color: rgb(175, 177, 85);
+      border-radius: 20%;
       text-decoration: none;
+    }
+    button {
+      border: none;
+      margin-top: 0.5rem;
+      margin-left: 0.5rem;
+      display: inline-block;
+      padding: 0.25rem;
+      background-color: black;
+      color: rgb(175, 177, 85);
+      border-radius: 20%;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      &:hover {
+        cursor: pointer;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
 }

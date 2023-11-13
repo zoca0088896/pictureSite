@@ -11,10 +11,13 @@ const Homepage = () => {
   let searchURL = `https://api.pexels.com/v1/search?query=${input}&page=1&per_page=16`;
   let [photos, setPhotos] = useState(null);
   const searchHandler = async (url) => {
+    //重新搜尋後要將page重置，避免更多圖片採用morePicture更新的page而跳頁
+    setPage(1);
     //將API KEY放入header內，並且作為Authorization屬性
     let result = await axios.get(url, {
       headers: { Authorization: auth },
     });
+    console.log(result.data.photos);
     setPhotos(result.data.photos);
     setCurrentSearch(input);
   };
@@ -50,7 +53,11 @@ const Homepage = () => {
     <div className="homePage" style={{ minHeight: "100vh" }}>
       <Search
         searchHandler={() => {
-          searchHandler(searchURL);
+          if (input === "") {
+            searchHandler(initialURL);
+          } else {
+            searchHandler(searchURL);
+          }
         }}
         photos={photos}
         setInput={setInput}

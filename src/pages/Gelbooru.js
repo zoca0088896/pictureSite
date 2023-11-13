@@ -9,9 +9,10 @@ const Gelbooru = () => {
   let [currenSearch, setCurrentSearch] = useState("");
   const auth = process.env.REACT_APP_GELBOORUKEY;
   let [page, setPage] = useState(0);
-  const initialURL = `https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=28${auth}&pid=${page}`;
-  const searchURL = `https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=28${auth}&tags=${input}&pid=${page}`;
+  const initialURL = `https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=28${auth}&pid=0`;
+  const searchURL = `https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=28${auth}&tags=${input}&pid=0`;
   const searchHandler = async (url) => {
+    setPage(0);
     let response = await axios.get(url);
     console.log(response.data.post);
     setimgs(response.data.post);
@@ -25,7 +26,7 @@ const Gelbooru = () => {
         page + 1
       }`;
     } else {
-      newURL = `https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=28${auth}&tags=${input}&pid=${
+      newURL = `https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=28${auth}&tags=${currenSearch}&pid=${
         page + 1
       }`;
     }

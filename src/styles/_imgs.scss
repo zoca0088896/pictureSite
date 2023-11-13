@@ -1,8 +1,159 @@
+$bg-color: rgba(0, 0, 0, 0.9);
+$tx-color: rgb(175, 177, 85);
 div.imgs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  div.dan-file {
+    width: 400px;
+    padding: 1rem;
+    div.danbooru-img {
+      height: 40vh;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease-in;
+        &:hover {
+          transform: scale(1.25);
+          cursor: zoom-in;
+        }
+      }
+    }
+    div.danbooru-video {
+      height: 40vh;
+      overflow: hidden;
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease-in;
+        &:hover {
+          transform: scale(1.25);
+          cursor: zoom-in;
+        }
+      }
+    }
+    label {
+      display: inline-block;
+      padding: 0.25rem;
+      border-radius: 20%;
+      transition: all 0.3s ease;
+      background-color: black;
+      &:hover {
+        cursor: pointer;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+    div.tags.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+    div.tags {
+      opacity: 0;
+      transition: all 0.2s linear;
+      pointer-events: none;
+      padding: 1rem;
+      position: fixed;
+      z-index: 1;
+      width: 80vw;
+      height: 80vh;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.9);
+      button.copy-btn {
+        padding: 0.25rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: rgb(175, 177, 85);
+        border: none;
+        width: 10%;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 90%;
+        bottom: 100%;
+        border-radius: 20%;
+        transition: all 0.3s ease;
+        &:hover {
+          cursor: pointer;
+        }
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+      button.download-tags {
+        padding: 0.25rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: rgb(175, 177, 85);
+        border: none;
+        width: 10%;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 75%;
+        bottom: 100%;
+        border-radius: 20%;
+        transition: all 0.3s ease;
+        &:hover {
+          cursor: pointer;
+        }
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+      label.closeTags {
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        left: 90%;
+        bottom: 100%;
+        width: 10%;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
+    a {
+      margin-top: 0.5rem;
+      margin-left: 0.5rem;
+      display: inline-block;
+      padding: 0.25rem;
+      background-color: black;
+      color: rgb(175, 177, 85);
+      border-radius: 20%;
+      text-decoration: none;
+    }
+    a.img-source {
+      margin-left: 0;
+      margin-bottom: 0.25rem;
+    }
+    a.video-source {
+      margin-left: 0;
+      margin-bottom: 0.25rem;
+    }
+    button {
+      border: none;
+      margin-top: 0.5rem;
+      margin-left: 0.5rem;
+      display: inline-block;
+      padding: 0.25rem;
+      background-color: black;
+      color: rgb(175, 177, 85);
+      border-radius: 20%;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      &:hover {
+        cursor: pointer;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
   div.safe-img {
     width: 400px;
     padding: 1rem;
@@ -50,7 +201,6 @@ div.imgs {
         padding: 0.25rem;
         background-color: rgba(0, 0, 0, 0.9);
         color: rgb(175, 177, 85);
-        font-size: 1rem;
         border: none;
         width: 10%;
         font-size: 1.5rem;
@@ -93,18 +243,41 @@ div.imgs {
       color: rgb(175, 177, 85);
       border-radius: 20%;
       text-decoration: none;
+      transition: all 0.3s ease;
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+    button {
+      border: none;
+      margin-top: 0.5rem;
+      margin-left: 0.5rem;
+      display: inline-block;
+      padding: 0.25rem;
+      background-color: black;
+      color: rgb(175, 177, 85);
+      border-radius: 20%;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      &:hover {
+        cursor: pointer;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
   div.gel-img {
-    flex-basis: 250px;
+    flex-basis: 400px;
     padding: 1rem;
     div.gelbooru-img {
-      height: 250px;
+      height: 25vh;
       overflow: hidden;
+      background-color: black;
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         transition: all 0.3s ease-in;
         &:hover {
           transform: scale(1.25);
@@ -142,7 +315,6 @@ div.imgs {
         padding: 0.25rem;
         background-color: rgba(0, 0, 0, 0.9);
         color: rgb(175, 177, 85);
-        font-size: 1rem;
         border: none;
         width: 10%;
         font-size: 1.5rem;
@@ -185,6 +357,24 @@ div.imgs {
       color: rgb(175, 177, 85);
       border-radius: 20%;
       text-decoration: none;
+    }
+    button {
+      border: none;
+      margin-top: 0.5rem;
+      margin-left: 0.5rem;
+      display: inline-block;
+      padding: 0.25rem;
+      background-color: black;
+      color: rgb(175, 177, 85);
+      border-radius: 20%;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      &:hover {
+        cursor: pointer;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
 }

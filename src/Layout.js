@@ -12,6 +12,9 @@ const Layout = () => {
             <Link to="/">Pexels</Link>
           </li>
           <li>
+            <Link to="/danbooru">Danbooru</Link>
+          </li>
+          <li>
             <Link to="/gelbooru">Gelbooru(NSFW)</Link>
           </li>
           <li>
