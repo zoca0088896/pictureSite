@@ -13,8 +13,8 @@ const Danbooru = () => {
   let [rating, setRating] = useState("");
   const limit = 20;
   const [input, setInput] = useState("");
-  const initialURL = `https://testbooru.donmai.us/posts.json?limit=${limit}&page=1&tags=${rating}`;
-  const searchURL = `https://testbooru.donmai.us/posts.json?limit=${limit}&page=1&tags=${rating}+${input}`;
+  const initialURL = `https://danbooru.donmai.us/posts.json?limit=${limit}&page=1&tags=${rating}`;
+  const searchURL = `https://danbooru.donmai.us/posts.json?limit=${limit}&page=1&tags=${rating}+${input}`;
   const searchHandler = async (url) => {
     setPage(1);
     let res = await axios.get(url);
@@ -26,11 +26,11 @@ const Danbooru = () => {
   const moreImgs = async () => {
     let newURL;
     if (currenSearch === "") {
-      newURL = `https://testbooru.donmai.us/posts.json?limit=${limit}&page=${
+      newURL = `https://danbooru.donmai.us/posts.json?limit=${limit}&page=${
         page + 1
       }&tags=${rating}`;
     } else {
-      newURL = `https://testbooru.donmai.us/posts.json?limit=${limit}&page=${
+      newURL = `https://danbooru.donmai.us/posts.json?limit=${limit}&page=${
         page + 1
       }&tags=${rating}+${currenSearch}`;
     }
@@ -51,7 +51,6 @@ const Danbooru = () => {
       return;
     }
   };
-
   //change image rating function
   const changeRating = async (e) => {
     //更換rating，重置page
@@ -62,11 +61,12 @@ const Danbooru = () => {
     //因為closure階段會直接帶入現有的rating，導致要下一次執行才能生效
     //page也要直接放入1。因為closure。
     if (currenSearch === "") {
-      newURL = `https://testbooru.donmai.us/posts.json?limit=${limit}&page=1&tags=${e.target.value}`;
+      newURL = `https://danbooru.donmai.us/posts.json?limit=${limit}&page=1&tags=${e.target.value}`;
     } else {
-      newURL = `https://testbooru.donmai.us/posts.json?limit=${limit}&page=1&tags=${e.target.value}+${input}`;
+      newURL = `https://danbooru.donmai.us/posts.json?limit=${limit}&page=1&tags=${e.target.value}+${currenSearch}`;
     }
     let res = await axios.get(newURL);
+    console.log(res.data);
     setimgs(res.data);
     //btn'spart
     //step1.remove active btn's class

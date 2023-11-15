@@ -1,6 +1,6 @@
 div.rating {
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   background-color: rgba(0, 0, 0, 0.9);
   padding: 0.75rem;
   margin-left: 1rem;
@@ -33,7 +33,7 @@ div.rating {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
+    width: 85%;
     height: 80%;
     background-color: rgba(0, 0, 0, 0.9);
     label {
@@ -74,5 +74,12 @@ div.rating {
         }
       }
     }
+  }
+  p.info {
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

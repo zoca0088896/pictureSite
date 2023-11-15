@@ -1,24 +1,26 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import Footer from "./components/Footer";
-import Spark from "./components/Spark";
+
 const Layout = () => {
   return (
     <>
-      <Spark />
       <nav>
         <ul>
           <li>
-            <Link to="/">Pexels</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/danbooru">Danbooru</Link>
           </li>
           <li>
-            <Link to="/gelbooru">Gelbooru(NSFW)</Link>
+            <Link to="/gelbooru">Gelbooru</Link>
           </li>
           <li>
             <Link to="/safebooru">Safebooru(SFW)</Link>
+          </li>
+          <li>
+            <Link to="/pexels">Pexels</Link>
           </li>
         </ul>
       </nav>

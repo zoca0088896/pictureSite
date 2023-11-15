@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Message from "./Message";
 const DanbooruImg = ({ img }) => {
+  let [msgStatus, setMsgStatus] = useState("hidden");
+  let [msg, setMsg] = useState("");
+  //use blob to download img
   const downloadImg = async (link, imgName) => {
     let res = await fetch(link);
     let picBlob = await res.blob();
@@ -10,14 +13,16 @@ const DanbooruImg = ({ img }) => {
     a.download = imgName;
     a.click();
     URL.revokeObjectURL(blobURL);
+    setMsgStatus("success");
+    setMsg("已開始下載，請確認");
   };
-  let [msgStatus, setMsgStatus] = useState("hidden");
   const copyTags = () => {
     const tags = document.querySelector(`#tag-${img.id}`).innerHTML;
     navigator.clipboard
       .writeText(tags)
       .then(() => {
         setMsgStatus("success");
+        setMsg("已成功複製Tags");
       })
       .catch((err) => {
         console.log(err);
@@ -31,6 +36,8 @@ const DanbooruImg = ({ img }) => {
     link.href = url;
     link.click();
     URL.revokeObjectURL(url);
+    setMsgStatus("success");
+    setMsg("已成功下載Tags文字檔");
   };
   //tagsbox toggle
   const toggleTags = () => {
@@ -51,15 +58,15 @@ const DanbooruImg = ({ img }) => {
         <div className="danbooru-video">
           <video src={img.file_url} autoPlay muted loop></video>
         </div>
-        <label htmlFor={img.id} className="showTags">
+        <label htmlFor={img.id} className="showTags" onClick={toggleTags}>
           顯示Tags
         </label>
-        <input type="checkbox" name="" id={img.id} />
-        <div className="tags">
+        <div className="tags" id={`tagsBox-${img.id}`}>
           <label
             htmlFor={img.id}
             className="closeTags"
             onClick={() => {
+              toggleTags();
               setMsgStatus("hidden");
             }}
           >
@@ -80,7 +87,6 @@ const DanbooruImg = ({ img }) => {
           <p className="tags" id={`tag-${img.id}`}>
             {img.tag_string}
           </p>
-          <Message msgStatus={msgStatus} setMsgStatus={setMsgStatus} />
         </div>
         <a href={img.large_file_url} target="_blank" rel="noreferrer noopener">
           高清大圖
@@ -102,6 +108,11 @@ const DanbooruImg = ({ img }) => {
         >
           下載影片
         </button>
+        <Message
+          msgStatus={msgStatus}
+          setMsgStatus={setMsgStatus}
+          message={msg}
+        />
       </div>
     );
   }
@@ -147,7 +158,6 @@ const DanbooruImg = ({ img }) => {
         <p className="tags" id={`tag-${img.id}`}>
           {img.tag_string}
         </p>
-        <Message msgStatus={msgStatus} setMsgStatus={setMsgStatus} />
       </div>
       <a href={img.large_file_url} target="_blank" rel="noreferrer noopener">
         高清大圖
@@ -168,6 +178,11 @@ const DanbooruImg = ({ img }) => {
       >
         下載圖片
       </button>
+      <Message
+        msgStatus={msgStatus}
+        setMsgStatus={setMsgStatus}
+        message={msg}
+      />
     </div>
   );
 };

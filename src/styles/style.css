@@ -2,6 +2,9 @@
 nav {
   overflow: hidden;
   background-image: linear-gradient(to left, black, rgb(121, 121, 76));
+  position: sticky;
+  z-index: 20;
+  top: 0;
 }
 nav ul {
   list-style: none;
@@ -114,74 +117,6 @@ div.photos div.picture button:active {
   transform: scale(0.9);
 }
 
-div.spark-effect {
-  position: fixed;
-  min-height: 100vh;
-  min-width: 100vw;
-  pointer-events: none;
-  z-index: -10;
-}
-div.spark-effect div.spark {
-  position: absolute;
-  width: 2px;
-  height: 300px;
-  background-color: rgb(189, 167, 81);
-}
-div.spark-effect .spark1 {
-  left: 10%;
-  animation: moveSpark 3s linear 0s infinite;
-}
-div.spark-effect .spark2 {
-  left: 17%;
-  animation: moveSpark 4s linear 2s infinite;
-}
-div.spark-effect .spark3 {
-  left: 29%;
-  animation: moveSpark 5s linear 1s infinite;
-}
-div.spark-effect .spark4 {
-  left: 38%;
-  animation: moveSpark 8s linear 0s infinite;
-}
-div.spark-effect .spark5 {
-  left: 46%;
-  animation: moveSpark 14s ease 0s infinite;
-}
-div.spark-effect .spark6 {
-  left: 60%;
-  animation: moveSpark 4s linear 1s infinite;
-}
-div.spark-effect .spark7 {
-  left: 78%;
-  animation: moveSpark 5s linear 1s infinite;
-}
-div.spark-effect .spark8 {
-  left: 86%;
-  animation: moveSpark 7s linear 6s infinite;
-}
-div.spark-effect .spark9 {
-  left: 94%;
-  animation: moveSpark 5s ease-in-out 0s infinite;
-}
-div.spark-effect .spark10 {
-  left: 55%;
-  animation: moveSpark 3s linear 1s infinite;
-}
-div.spark-effect .spark10 {
-  left: 5%;
-  animation: moveSpark 6s linear 0s infinite;
-}
-
-@keyframes moveSpark {
-  0% {
-    margin-top: 100vh;
-    opacity: 1;
-  }
-  100% {
-    margin-top: -200px;
-    opacity: 0;
-  }
-}
 div.imgs {
   display: flex;
   flex-wrap: wrap;
@@ -228,6 +163,7 @@ div.imgs div.dan-file label {
   border-radius: 20%;
   transition: all 0.3s ease;
   background-color: black;
+  font-size: 1.2rem;
 }
 div.imgs div.dan-file label:hover {
   cursor: pointer;
@@ -312,6 +248,11 @@ div.imgs div.dan-file a {
   color: rgb(175, 177, 85);
   border-radius: 20%;
   text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+div.imgs div.dan-file a:active {
+  transform: scale(0.9);
 }
 div.imgs div.dan-file a.img-source {
   margin-left: 0;
@@ -330,7 +271,7 @@ div.imgs div.dan-file button {
   background-color: black;
   color: rgb(175, 177, 85);
   border-radius: 20%;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 div.imgs div.dan-file button:hover {
@@ -367,6 +308,7 @@ div.imgs div.safe-img label {
   border-radius: 20%;
   transition: all 0.3s ease;
   background-color: black;
+  font-size: 1.2rem;
 }
 div.imgs div.safe-img label:hover {
   cursor: pointer;
@@ -374,7 +316,14 @@ div.imgs div.safe-img label:hover {
 div.imgs div.safe-img label:active {
   transform: scale(0.9);
 }
+div.imgs div.safe-img div.tags.show {
+  opacity: 1;
+  pointer-events: all;
+}
 div.imgs div.safe-img div.tags {
+  opacity: 0;
+  transition: all 0.2s linear;
+  pointer-events: none;
   padding: 1rem;
   position: fixed;
   z-index: 1;
@@ -384,8 +333,6 @@ div.imgs div.safe-img div.tags {
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.9);
-  transition: all 0.3s ease;
-  display: none;
 }
 div.imgs div.safe-img div.tags button.copy-btn {
   padding: 0.25rem;
@@ -415,11 +362,27 @@ div.imgs div.safe-img div.tags label.closeTags {
   text-align: center;
   font-size: 1.5rem;
 }
+div.imgs div.safe-img div.tags button.download-tags {
+  padding: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgb(175, 177, 85);
+  border: none;
+  width: 10%;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 75%;
+  bottom: 100%;
+  border-radius: 20%;
+  transition: all 0.3s ease;
+}
+div.imgs div.safe-img div.tags button.download-tags:hover {
+  cursor: pointer;
+}
+div.imgs div.safe-img div.tags button.download-tags:active {
+  transform: scale(0.9);
+}
 div.imgs div.safe-img div.tags p {
   font-size: 1.5rem;
-}
-div.imgs div.safe-img input:checked + div.tags {
-  display: block;
 }
 div.imgs div.safe-img a {
   margin-top: 0.5rem;
@@ -430,10 +393,15 @@ div.imgs div.safe-img a {
   color: rgb(175, 177, 85);
   border-radius: 20%;
   text-decoration: none;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 div.imgs div.safe-img a:active {
   transform: scale(0.9);
+}
+div.imgs div.safe-img a.img-source {
+  margin-left: 0;
+  margin-bottom: 0.25rem;
 }
 div.imgs div.safe-img button {
   border: none;
@@ -444,7 +412,7 @@ div.imgs div.safe-img button {
   background-color: black;
   color: rgb(175, 177, 85);
   border-radius: 20%;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 div.imgs div.safe-img button:hover {
@@ -482,6 +450,7 @@ div.imgs div.gel-img label {
   border-radius: 20%;
   transition: all 0.3s ease;
   background-color: black;
+  font-size: 1.2rem;
 }
 div.imgs div.gel-img label:hover {
   cursor: pointer;
@@ -489,18 +458,23 @@ div.imgs div.gel-img label:hover {
 div.imgs div.gel-img label:active {
   transform: scale(0.9);
 }
+div.imgs div.gel-img div.tags.show {
+  opacity: 1;
+  pointer-events: all;
+}
 div.imgs div.gel-img div.tags {
+  opacity: 0;
+  transition: all 0.2s linear;
+  pointer-events: none;
   padding: 1rem;
   position: fixed;
+  z-index: 1;
   width: 80vw;
   height: 80vh;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.9);
-  z-index: 1;
-  transition: all 0.3s ease;
-  display: none;
 }
 div.imgs div.gel-img div.tags button.copy-btn {
   padding: 0.25rem;
@@ -519,6 +493,25 @@ div.imgs div.gel-img div.tags button.copy-btn:hover {
   cursor: pointer;
 }
 div.imgs div.gel-img div.tags button.copy-btn:active {
+  transform: scale(0.9);
+}
+div.imgs div.gel-img div.tags button.download-tags {
+  padding: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgb(175, 177, 85);
+  border: none;
+  width: 10%;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 75%;
+  bottom: 100%;
+  border-radius: 20%;
+  transition: all 0.3s ease;
+}
+div.imgs div.gel-img div.tags button.download-tags:hover {
+  cursor: pointer;
+}
+div.imgs div.gel-img div.tags button.download-tags:active {
   transform: scale(0.9);
 }
 div.imgs div.gel-img div.tags label.closeTags {
@@ -545,6 +538,15 @@ div.imgs div.gel-img a {
   color: rgb(175, 177, 85);
   border-radius: 20%;
   text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+div.imgs div.gel-img a:active {
+  transform: scale(0.9);
+}
+div.imgs div.gel-img a.img-source {
+  margin-bottom: 0.25rem;
+  margin-left: 0;
 }
 div.imgs div.gel-img button {
   border: none;
@@ -555,7 +557,7 @@ div.imgs div.gel-img button {
   background-color: black;
   color: rgb(175, 177, 85);
   border-radius: 20%;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 div.imgs div.gel-img button:hover {
@@ -565,60 +567,60 @@ div.imgs div.gel-img button:active {
   transform: scale(0.9);
 }
 
-div.hidden {
-  display: none;
-}
-
-div.success {
+div.msg {
+  transition: all 0.2s ease-in-out;
   padding: 1rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
+  z-index: 2;
   left: 50%;
   top: 50%;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
   transform: translate(-50%, -50%);
   width: 80%;
   height: 20%;
   border-radius: 10%;
-  animation: fadeIn 0.1s linear 0s 1 normal;
 }
-div.success p {
-  color: rgba(175, 177, 85, 0.9);
+div.msg p {
+  font-size: 2rem;
+  color: rgb(175, 177, 85);
 }
-div.success button {
+div.msg button#check-btn {
   padding: 0.25rem;
   align-self: flex-end;
   position: absolute;
   top: 102%;
   width: 10%;
-  background-color: rgb(0, 0, 0);
-  color: rgba(175, 177, 85, 0.9);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgb(175, 177, 85);
   border: none;
   border-radius: 20%;
   font-size: 1.5rem;
   transition: all 0.3s ease;
 }
-div.success button:hover {
+div.msg button#check-btn:hover {
   cursor: pointer;
 }
-div.success button:active {
+div.msg button#check-btn:active {
   transform: scale(0.9);
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+div.msg.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
+
+div.msg.success {
+  opacity: 1;
+  pointer-events: all;
+}
+
 div.rating {
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   background-color: rgba(0, 0, 0, 0.9);
   padding: 0.75rem;
   margin-left: 1rem;
@@ -652,7 +654,7 @@ div.rating div.rating-menu {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
+  width: 85%;
   height: 80%;
   background-color: rgba(0, 0, 0, 0.9);
 }
@@ -694,6 +696,13 @@ div.rating div.rating-menu div.btns button.btn-active::before {
 }
 div.rating div.rating-menu div.btns button.btn-active:hover {
   cursor: pointer;
+}
+div.rating p.info {
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 * {

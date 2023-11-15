@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Message from "./Message";
 const Safeimgs = ({ img }) => {
   let [msgStatus, setMsgStatus] = useState("hidden");
+  let [msg, setMsg] = useState("");
   //複製標籤至使用者的剪貼簿
   const copyTags = () => {
     const tags = document.querySelector(`#tag-${img.id}`).innerHTML;
@@ -9,6 +10,7 @@ const Safeimgs = ({ img }) => {
       .writeText(tags)
       .then(() => {
         setMsgStatus("success");
+        setMsg("已成功複製Tags");
       })
       .catch((err) => {
         console.log(err);
@@ -23,6 +25,8 @@ const Safeimgs = ({ img }) => {
     link.href = url;
     link.click();
     URL.revokeObjectURL(url);
+    setMsgStatus("success");
+    setMsg("已成功下載Tags文字檔");
   };
   //將圖片資源轉為canvas再轉為base64並下載
   const downloadImg = async (link, imgName) => {
@@ -48,25 +52,39 @@ const Safeimgs = ({ img }) => {
       //a tag的href可以是base64編碼，而下載時透過瀏覽器會自動轉換成檔案
       a.href = url;
       a.click();
+      setMsgStatus("success");
+      setMsg("已開始下載，請確認");
     };
+  };
+  const toggleTags = () => {
+    const tagsBox = document.querySelector(`#tagsBox-${img.id}`);
+    tagsBox.classList.toggle("show");
   };
   return (
     <div className="safe-img">
+      <a
+        href={`https://safebooru.org/index.php?page=post&s=view&id=${img.id}`}
+        target="_blank"
+        rel="noreferrer noopener"
+        className="img-source"
+      >
+        查看S站
+      </a>
       <div className="safebooru-img">
         <img
           src={`https://safebooru.org//images/${img.directory}/${img.image}?${img.id}`}
           alt={img.owner}
         />
       </div>
-      <label htmlFor={img.id} className="showTags">
+      <label htmlFor={img.id} className="showTags" onClick={toggleTags}>
         顯示Tags
       </label>
-      <input type="checkbox" name="" id={img.id} />
-      <div className="tags">
+      <div className="tags" id={`tagsBox-${img.id}`}>
         <label
           htmlFor={img.id}
           className="closeTags"
           onClick={() => {
+            toggleTags();
             setMsgStatus("hidden");
           }}
         >
@@ -75,10 +93,18 @@ const Safeimgs = ({ img }) => {
         <button className="copy-btn" onClick={copyTags}>
           複製Tags
         </button>
+        <button
+          className="download-tags"
+          onClick={() => {
+            const tags = document.querySelector(`#tag-${img.id}`).innerHTML;
+            downloadTags(tags, `${img.id}.txt`);
+          }}
+        >
+          下載Tags
+        </button>
         <p className="tags" id={`tag-${img.id}`}>
           {img.tags}
         </p>
-        <Message msgStatus={msgStatus} setMsgStatus={setMsgStatus} />
       </div>
       <a
         href={`https://safebooru.org//images/${img.directory}/${img.image}?${img.id}`}
@@ -88,6 +114,7 @@ const Safeimgs = ({ img }) => {
         高清大圖
       </a>
       <button
+        className="download-tags"
         onClick={() => {
           const tags = document.querySelector(`#tag-${img.id}`).innerHTML;
           downloadTags(tags, `${img.id}.txt`);
@@ -105,6 +132,11 @@ const Safeimgs = ({ img }) => {
       >
         下載圖片
       </button>
+      <Message
+        msgStatus={msgStatus}
+        setMsgStatus={setMsgStatus}
+        message={msg}
+      />
     </div>
   );
 };

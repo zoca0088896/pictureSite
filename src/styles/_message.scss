@@ -1,15 +1,14 @@
-$bg-color: rgb(0, 0, 0);
-$tx-color: rgba(175, 177, 85, 0.9);
-div.hidden {
-  display: none;
-}
-div.success {
+$bg-color: rgba(0, 0, 0, 0.9);
+$tx-color: rgba(175, 177, 85);
+div.msg {
+  transition: all 0.2s ease-in-out;
   padding: 1rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
+  z-index: 2;
   left: 50%;
   top: 50%;
   background-color: $bg-color;
@@ -17,11 +16,11 @@ div.success {
   width: 80%;
   height: 20%;
   border-radius: 10%;
-  animation: fadeIn 0.1s linear 0s 1 normal;
   p {
+    font-size: 2rem;
     color: $tx-color;
   }
-  button {
+  button#check-btn {
     padding: 0.25rem;
     align-self: flex-end;
     position: absolute;
@@ -33,7 +32,6 @@ div.success {
     border-radius: 20%;
     font-size: 1.5rem;
     transition: all 0.3s ease;
-
     &:hover {
       cursor: pointer;
     }
@@ -42,11 +40,11 @@ div.success {
     }
   }
 }
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+div.msg.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+div.msg.success {
+  opacity: 1;
+  pointer-events: all;
 }

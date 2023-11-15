@@ -1,0 +1,67 @@
+div.Lighting-effect {
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  pointer-events: none;
+  z-index: -10;
+  div.Lighting {
+    position: absolute;
+    width: 2px;
+    height: 300px;
+    background-color: rgb(189, 167, 81);
+  }
+  .Lighting1 {
+    left: 10%;
+    animation: moveLighting 3s linear 0s infinite;
+  }
+  .Lighting2 {
+    left: 17%;
+    animation: moveLighting 4s linear 2s infinite;
+  }
+  .Lighting3 {
+    left: 29%;
+    animation: moveLighting 5s linear 1s infinite;
+  }
+  .Lighting4 {
+    left: 38%;
+    animation: moveLighting 8s linear 0s infinite;
+  }
+  .Lighting5 {
+    left: 46%;
+    animation: moveLighting 14s ease 0s infinite;
+  }
+  .Lighting6 {
+    left: 60%;
+    animation: moveLighting 4s linear 1s infinite;
+  }
+  .Lighting7 {
+    left: 78%;
+    animation: moveLighting 5s linear 1s infinite;
+  }
+  .Lighting8 {
+    left: 86%;
+    animation: moveLighting 7s linear 6s infinite;
+  }
+  .Lighting9 {
+    left: 94%;
+    animation: moveLighting 5s ease-in-out 0s infinite;
+  }
+  .Lighting10 {
+    left: 55%;
+    animation: moveLighting 3s linear 1s infinite;
+  }
+  .spark10 {
+    left: 5%;
+    animation: moveLighting 6s linear 0s infinite;
+  }
+}
+@keyframes moveLighting {
+  0% {
+    margin-top: 100vh;
+    opacity: 1;
+  }
+  100% {
+    margin-top: -200px;
+    opacity: 0;
+  }
+}

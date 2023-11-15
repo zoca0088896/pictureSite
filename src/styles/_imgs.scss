@@ -42,6 +42,7 @@ div.imgs {
       border-radius: 20%;
       transition: all 0.3s ease;
       background-color: black;
+      font-size: 1.2rem;
       &:hover {
         cursor: pointer;
       }
@@ -126,6 +127,11 @@ div.imgs {
       color: rgb(175, 177, 85);
       border-radius: 20%;
       text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      &:active {
+        transform: scale(0.9);
+      }
     }
     a.img-source {
       margin-left: 0;
@@ -144,7 +150,7 @@ div.imgs {
       background-color: black;
       color: rgb(175, 177, 85);
       border-radius: 20%;
-      font-size: 1rem;
+      font-size: 1.2rem;
       transition: all 0.3s ease;
       &:hover {
         cursor: pointer;
@@ -180,6 +186,7 @@ div.imgs {
       border-radius: 20%;
       transition: all 0.3s ease;
       background-color: black;
+      font-size: 1.2rem;
       &:hover {
         cursor: pointer;
       }
@@ -187,7 +194,14 @@ div.imgs {
         transform: scale(0.9);
       }
     }
+    div.tags.show {
+      opacity: 1;
+      pointer-events: all;
+    }
     div.tags {
+      opacity: 0;
+      transition: all 0.2s linear;
+      pointer-events: none;
       padding: 1rem;
       position: fixed;
       z-index: 1;
@@ -225,14 +239,28 @@ div.imgs {
         text-align: center;
         font-size: 1.5rem;
       }
+      button.download-tags {
+        padding: 0.25rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: rgb(175, 177, 85);
+        border: none;
+        width: 10%;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 75%;
+        bottom: 100%;
+        border-radius: 20%;
+        transition: all 0.3s ease;
+        &:hover {
+          cursor: pointer;
+        }
+        &:active {
+          transform: scale(0.9);
+        }
+      }
       p {
         font-size: 1.5rem;
       }
-      transition: all 0.3s ease;
-      display: none;
-    }
-    input:checked + div.tags {
-      display: block;
     }
     a {
       margin-top: 0.5rem;
@@ -243,10 +271,15 @@ div.imgs {
       color: rgb(175, 177, 85);
       border-radius: 20%;
       text-decoration: none;
+      font-size: 1.2rem;
       transition: all 0.3s ease;
       &:active {
         transform: scale(0.9);
       }
+    }
+    a.img-source {
+      margin-left: 0;
+      margin-bottom: 0.25rem;
     }
     button {
       border: none;
@@ -257,7 +290,7 @@ div.imgs {
       background-color: black;
       color: rgb(175, 177, 85);
       border-radius: 20%;
-      font-size: 1rem;
+      font-size: 1.2rem;
       transition: all 0.3s ease;
       &:hover {
         cursor: pointer;
@@ -294,6 +327,7 @@ div.imgs {
       border-radius: 20%;
       transition: all 0.3s ease;
       background-color: black;
+      font-size: 1.2rem;
       &:hover {
         cursor: pointer;
       }
@@ -301,16 +335,23 @@ div.imgs {
         transform: scale(0.9);
       }
     }
+    div.tags.show {
+      opacity: 1;
+      pointer-events: all;
+    }
     div.tags {
+      opacity: 0;
+      transition: all 0.2s linear;
+      pointer-events: none;
       padding: 1rem;
       position: fixed;
+      z-index: 1;
       width: 80vw;
       height: 80vh;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
       background-color: rgba(0, 0, 0, 0.9);
-      z-index: 1;
       button.copy-btn {
         padding: 0.25rem;
         background-color: rgba(0, 0, 0, 0.9);
@@ -320,6 +361,25 @@ div.imgs {
         font-size: 1.5rem;
         position: absolute;
         right: 90%;
+        bottom: 100%;
+        border-radius: 20%;
+        transition: all 0.3s ease;
+        &:hover {
+          cursor: pointer;
+        }
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+      button.download-tags {
+        padding: 0.25rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: rgb(175, 177, 85);
+        border: none;
+        width: 10%;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 75%;
         bottom: 100%;
         border-radius: 20%;
         transition: all 0.3s ease;
@@ -342,8 +402,6 @@ div.imgs {
       p {
         font-size: 1.5rem;
       }
-      transition: all 0.3s ease;
-      display: none;
     }
     input:checked + div.tags {
       display: block;
@@ -357,6 +415,15 @@ div.imgs {
       color: rgb(175, 177, 85);
       border-radius: 20%;
       text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+    a.img-source {
+      margin-bottom: 0.25rem;
+      margin-left: 0;
     }
     button {
       border: none;
@@ -367,7 +434,7 @@ div.imgs {
       background-color: black;
       color: rgb(175, 177, 85);
       border-radius: 20%;
-      font-size: 1rem;
+      font-size: 1.2rem;
       transition: all 0.3s ease;
       &:hover {
         cursor: pointer;

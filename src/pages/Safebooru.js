@@ -3,6 +3,9 @@ import Search from "../components/Search";
 import axios from "axios";
 import Safeimgs from "../components/Safeimgs";
 import Noresult from "../components/Noresult";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
 const Safebooru = () => {
   let [imgs, setimgs] = useState(null);
   const [input, setInput] = useState("");
@@ -17,7 +20,6 @@ const Safebooru = () => {
     setimgs(response.data);
     setCurrentSearch(input);
   };
-  //more imgs
   const moreImgs = async () => {
     let newURL;
     if (currenSearch === "") {
@@ -29,9 +31,9 @@ const Safebooru = () => {
         page + 1
       }&json=1`;
     }
-    console.log(newURL);
     setPage(page + 1);
     let response = await axios.get(newURL);
+    console.log(response.data);
     setimgs([...imgs, ...response.data]);
   };
   //recommand imgs
@@ -47,9 +49,27 @@ const Safebooru = () => {
       return;
     }
   };
-
+  const toggleMenu = () => {
+    const menu = document.querySelector(".rating-menu");
+    menu.classList.toggle("show");
+  };
   return (
     <div>
+      <div className="rating">
+        <p>Rating</p>
+        <label htmlFor="rating-box" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={fas.faBars} />
+        </label>
+        <div className="rating-menu">
+          <label htmlFor="rating-box" onClick={toggleMenu}>
+            <FontAwesomeIcon icon={far.faRectangleXmark} size="xl" />
+          </label>
+          <p className="info">
+            This page only has general images <br />
+            If you want to check out NSFW content, please use Danbooru/Gelbooru.
+          </p>
+        </div>
+      </div>
       <Search
         searchHandler={() => {
           searchHandler(searchURL);
