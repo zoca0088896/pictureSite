@@ -11,8 +11,11 @@ const Safebooru = () => {
   const [input, setInput] = useState("");
   let [currenSearch, setCurrentSearch] = useState("");
   let [page, setPage] = useState(0);
+  //部屬時要改成/safebooru才能套用到netlify的proxy
+  //利用*會匹配到:splat的特性，除了初始URL外剩下的URL都會是去掉https://即可
   const initialURL = `https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=20&pid=0&json=1`;
-  const searchURL = `https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=20&tags=${input}&pid=0&json=1`;
+  //部屬時改成/safebooru.org/index.php?page=dapi&s=post&q=index&limit=20&pid=0&json=1&tags=${input}
+  const searchURL = `https://safebooru.org/index.php?page=dapi&s=post&q=index&limit=20&pid=0&json=1&tags=${input}`;
   const searchHandler = async (url) => {
     setPage(0);
     let response = await axios.get(url);
