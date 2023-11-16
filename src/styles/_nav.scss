@@ -1,9 +1,6 @@
 nav {
   overflow: hidden;
   background-image: linear-gradient(to left, black, rgb(121, 121, 76));
-  position: sticky;
-  z-index: 20;
-  top: 0;
   ul {
     list-style: none;
     display: flex;

@@ -126,6 +126,13 @@ const DanbooruImg = ({ img }) => {
       >
         圖片來源
       </a>
+      <a
+        href={`https://danbooru.donmai.us/posts/${img.id}`}
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        查看D網
+      </a>
       <div className="danbooru-img">
         <img src={img.file_url} alt="發生錯誤，請確認來源或查看大圖" />
       </div>

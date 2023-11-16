@@ -2,9 +2,6 @@
 nav {
   overflow: hidden;
   background-image: linear-gradient(to left, black, rgb(121, 121, 76));
-  position: sticky;
-  z-index: 20;
-  top: 0;
 }
 nav ul {
   list-style: none;
@@ -709,6 +706,7 @@ div.rating p.info {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -736,4 +734,16 @@ body div.morePicture button:hover {
 }
 body div.morePicture button:active {
   transform: scale(0.8);
+}
+
+div.homePage h1 {
+  text-align: center;
+  margin-top: 2rem;
+}
+div.homePage main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 }/*# sourceMappingURL=style.css.map */

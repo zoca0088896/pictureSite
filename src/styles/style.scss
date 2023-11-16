@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
   background-image: linear-gradient(to right, rgb(70, 70, 67), rgb(41, 43, 32));
@@ -34,5 +35,18 @@ body {
         transform: scale(0.8);
       }
     }
+  }
+}
+div.homePage {
+  h1 {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
   }
 }
